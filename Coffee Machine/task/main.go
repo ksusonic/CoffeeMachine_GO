@@ -73,13 +73,17 @@ func Buy(Water, Milk, Beans, Cups, Money *int) {
 	fmt.Println()
 }
 
+func AskAction() string {
+	var action string
+	fmt.Println("Write action (buy, fill, take, remaining, exit): ")
+	fmt.Scan(&action)
+	fmt.Println()
+}
+
 func main() {
 	var water, milk, beans, cups, money = 400, 540, 120, 9, 550
-	var action string
 	for true {
-		fmt.Println("Write action (buy, fill, take, remaining, exit): ")
-		fmt.Scan(&action)
-		fmt.Println()
+		action := AskAction()
 		if action == "buy" {
 			Buy(&water, &milk, &beans, &cups, &money)
 		} else if action == "fill" {
