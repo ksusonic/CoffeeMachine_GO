@@ -78,6 +78,7 @@ func AskAction() string {
 	fmt.Println("Write action (buy, fill, take, remaining, exit): ")
 	fmt.Scan(&action)
 	fmt.Println()
+	return action
 }
 
 func main() {
