@@ -34,7 +34,7 @@ func Take(Money *int) {
 
 func Buy(Water, Milk, Beans, Cups, Money *int) {
 	var choice int
-	fmt.Println("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")
+	fmt.Println("What do you want to buy? 1 - espresso ($4), 2 - latte ($7), 3 - cappuccino ($6):")
 	var waterNeeded, milkNeeded, beansNeeded, moneyIncome = 0, 0, 0, 0
 	fmt.Scan(&choice)
 	if choice == 1 {
@@ -63,7 +63,13 @@ func Buy(Water, Milk, Beans, Cups, Money *int) {
 	} else if *Cups < 1 {
 		fmt.Println("Sorry, not enough cups!")
 	} else {
-		fmt.Println("I have enough resources, making you a coffee!")
+		fmt.Println("I have enough resources. Would you like to add syrup (+ $2)? 0 - No, 1 - chocolate, 2 - vanilla, 3 - coconut")
+		var addSuryp int
+		fmt.Scan(&addSuryp)
+		if 1 <= addSuryp && addSuryp <= 3 {
+			moneyIncome += 2
+		}
+
 		*Water -= waterNeeded
 		*Milk -= milkNeeded
 		*Beans -= beansNeeded
